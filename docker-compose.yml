@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  jobdb:
+    image: mongo
+
+  jobs.api:
+    image: ${DOCKER_REGISTRY-}jobsapi
+    build:
+      context: .
+      dockerfile: Jobs.API/Dockerfile
+
+volumes:
+  mongo_data:
